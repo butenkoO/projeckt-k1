@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
     overflow-x: hidden;
     margin: 10px;
@@ -23,13 +27,24 @@ ul{
     background-color: rgb(255, 255, 255);
 }
 .goods:hover{
-    transform: scale(1.1,1.1);
     transition-duration: 350ms;
     height: auto;
     position: absolute;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     z-index: 99;
 }
-.first{
-    position: absolute;
+.basket{
+    width: 1000px;
+    justify-content: center;
+    margin-left: 30px;
+}
+.basket-div ul{
+    height: auto;
+}
+#bas{
+    display: inline-block;
+    position: relative;
+    left: 90%;
+    top: 2%;
+    margin-right: 30px;
 }

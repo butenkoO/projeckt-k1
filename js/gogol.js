@@ -47,7 +47,7 @@ function showGoods(data){
     var out = '';
     for(var i = 0; i<data.length; i++){
         if(data[i]['gsx$show']['$t'] !=0){
-            out += `<div class="first col-6 col-lg-3 col-md-4 text-center">`;
+            out += `<div class="${data[i]['gsx$class']['$t']} col-6 col-lg-3 col-md-4 text-center">`;
             out += `<div class="goods" id="goods">`; 
             out += `<h3 class="goodsName">${data[i]['gsx$name']['$t']}</h3>`;
             out += `<img class="img rounded mx-auto d-block" src="${data[i]['gsx$image']['$t']}" alt="">`;
@@ -63,6 +63,7 @@ function showGoods(data){
 
 // якщо нажати на кнопку "В корзину" запуститься функція для додавання товару
 document.onclick = function(e){
+    if(e.target.attributes.name != undefined){
     if(e.target.attributes.name.nodeValue == 'addgood'){
         addGoods(e.target.attributes.data.nodeValue);
     } else if(e.target.attributes.name.nodeValue == 'del-goods'){
@@ -79,6 +80,7 @@ document.onclick = function(e){
         } else {basket[e.target.attributes.data.nodeValue]--;}
         showBasket();
         localStorage.setItem('basket', JSON.stringify(basket));
+        }
     }
 }
 
@@ -109,26 +111,50 @@ function helper(arr){
 }
 
 // добавляємо саму корзину
-    function showBasket(){
-        let ul = document.querySelector('.basket');
-        ul.innerHTML = '';
-        let sum = 0;
-        for(let key in basket){
-            let li = '<li>';
-            li += goods[key]['name']+' ';
-            li += ` <button name="minus-goods" data="${key}">-</button>`;
-            li += basket[key] + 'шт ';
-            li += ` <button name="plus-goods" data="${key}">+</button>`;
-            li += goods[key]['cost']*basket[key]+'грн.';
-            li += ` <button name="del-goods" data="${key}">Видалити</button>`;
-            li += '</li>';
-            sum += goods[key]['cost']*basket[key];
-            ul.innerHTML += li;
-         }
-         ul.innerHTML += 'Всього '+sum +'грн.';
-    }
-
-    
+function showBasket(){
+    let ul = document.querySelector('.basket');
+    ul.innerHTML = '';
+    let sum = 0;
+    for(let key in basket){
+        let li = '<li>';
+        li += goods[key]['name']+' ';
+        li += ` <button name="minus-goods" data="${key}">-</button>`;
+        li += basket[key] + 'шт ';
+        li += ` <button name="plus-goods" data="${key}">+</button>`;
+        li += goods[key]['cost']*basket[key]+'грн.';
+        li += ` <button name="del-goods" data="${key}">Видалити</button>`;
+        li += '</li>';
+        sum += goods[key]['cost']*basket[key];
+        ul.innerHTML += li;
+     }
+     ul.innerHTML += 'Всього '+sum +'грн.';
+}
 
 
 }
+
+$( document ).ready(function(){
+    $( ".slide-toggle" ).click(function(){
+      $( ".basket-div" ).slideToggle(); 
+    });
+  });
+  $( document ).ready(function(){
+    $( ".all" ).click(function(){
+      $( "[class^=tovar]" ).show();
+    });
+
+    $( ".qwe" ).click(function(){
+        $( "[class^=tovar]" ).hide();
+        $( "[class*=short]" ).show();
+      });
+
+      $( ".asd" ).click(function(){
+        $( "[class^=tovar]" ).hide();
+        $( "[class*=bag]" ).show();
+      });
+
+      $( ".zxc" ).click(function(){
+        $( "[class^=tovar]" ).hide();
+        $( "[class*=pant]" ).show();
+      });
+  });
