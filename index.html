@@ -10,18 +10,33 @@
     <title>Gogol shop</title>
   </head>
   <body>
-    <ul>
-      <li class="all">all</li>
-      <li class="qwe">short</li>
-      <li class="asd">bags</li>
-      <li class="zxc">pants</li>
-    </ul>
+      <a class="all">all</a><br>
+      <a class="qwe">short</a><br>
+      <a class="asd">bags</a><br>
+      <a class="zxc">pants</a><br>
         <div class="container" >
            <div class="row"> 
              <i style='font-size:44px'  id='bas' class='fas bas slide-toggle'>&#xf155;</i>
             <div class="basket-div col-lg-12">
             <div class=" text-center">Корзина</div>
                 <ul class="basket"></ul>
+                <button id="buy-btn">Купити</button>
+                <div id="modal">
+                <div class="modal-content">
+                  <p>Для замовлення товару залиште контактні дані і менеджер звяжеться з Вами в найближчий час</p>
+                  <form action="" method="get">
+                    <label for="nameClien">Імя</label><br>
+                    <input type="text" id="nameClien" placeholder="Імя" required>
+                    <label for="emailClient">Електронна адреса</label><br>
+                    <input type="email" id="emailClient" placeholder="your@mail">
+                    <label for="phone">Контактний телефон</label><br>
+                    <input type="tel" id="phone" placeholder="+380" required>
+                    <p>Додаткова інформація<Br>
+                    <textarea class="comment" name="comment" cols="45" rows="3"></textarea></p><br>
+                    <input type="submit" value="Відправити" id="send-goods">
+                  </form>
+                </div>
+              </div>
             </div>
         </div>
         <div class="row shop-field">

@@ -25,23 +25,19 @@ loadGoodsToBasket();
         };
         xhr.send();
     }
+
 // підключаю дані з google tabs 
     getJSON('https://spreadsheets.google.com/feeds/list/1vRD_wLzqPdST_zP_Tk8u0ApDXN-TDsOVYRtjdGtpNi0/od6/public/values?alt=json', 
     function(err, data){
-        console.log(data);
-        if(err !== null){
-            console.log('Error' + err);
-        }
-        else {
             data = data['feed']['entry'];
-            console.log(data);
-            goods = helper(data);
-            console.log(goods);
+             goods = helper(data);
+
             // міняю вміст Div на товар
             document.querySelector(".shop-field").innerHTML = showGoods(data);
             showBasket();
-        }
+        // }
     }); 
+
 // функція, що відображає інформацію з товаром
 function showGoods(data){
     var out = '';
@@ -134,6 +130,7 @@ function showBasket(){
 }
 
 $( document ).ready(function(){
+    $( ".basket-div" ).hide();
     $( ".slide-toggle" ).click(function(){
       $( ".basket-div" ).slideToggle(); 
     });
@@ -158,3 +155,18 @@ $( document ).ready(function(){
         $( "[class*=pant]" ).show();
       });
   });
+
+  let modal = document.getElementById('modal');
+  let btn = document.getElementById("buy-btn");
+  let span = document.getElementsByClassName("close")[0];
+
+  btn.onclick = function(){
+      modal.style.display = "block";
+  }
+  window.onclick = function(){
+      if(event.target == modal){
+        modal.style.display = "none";
+      }
+  }
+
+  
