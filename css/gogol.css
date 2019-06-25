@@ -66,3 +66,6 @@ ul{
     width: 1000px;
     background-color: #fefefe;
     }
+#file{
+    display: none;
+}

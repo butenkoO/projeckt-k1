@@ -1,6 +1,7 @@
 window.onload = function(){
-    let basket = {}; 
+    let basket= bas = {}; 
     let goods= {};
+ 
 // перевіряємо чи пуста корзина
     function loadGoodsToBasket(){
         if(localStorage.getItem('basket') != null){
@@ -30,8 +31,8 @@ loadGoodsToBasket();
     getJSON('https://spreadsheets.google.com/feeds/list/1vRD_wLzqPdST_zP_Tk8u0ApDXN-TDsOVYRtjdGtpNi0/od6/public/values?alt=json', 
     function(err, data){
             data = data['feed']['entry'];
-             goods = helper(data);
-
+            goods = helper(data);
+   console.log(goods);
             // міняю вміст Div на товар
             document.querySelector(".shop-field").innerHTML = showGoods(data);
             showBasket();
@@ -44,7 +45,7 @@ function showGoods(data){
     for(var i = 0; i<data.length; i++){
         if(data[i]['gsx$show']['$t'] !=0){
             out += `<div class="${data[i]['gsx$class']['$t']} col-6 col-lg-3 col-md-4 text-center">`;
-            out += `<div class="goods" id="goods">`; 
+            out += `<div class="goods" id="${data[i]['gsx$id']['$t']}">`; 
             out += `<h3 class="goodsName">${data[i]['gsx$name']['$t']}</h3>`;
             out += `<img class="img rounded mx-auto d-block" src="${data[i]['gsx$image']['$t']}" alt="">`;
             out += `<p class="cost">Ціна: ${data[i]['gsx$cost']['$t']}грн.</p>`;
@@ -101,6 +102,7 @@ function helper(arr){
         temp['cost'] = arr[i]['gsx$cost']['$t'];
         temp['image'] = arr[i]['gsx$image']['$t'];
         temp['about'] = arr[i]['gsx$about']['$t'];
+        temp['id'] = arr[i]['gsx$id']['$t'];
         out[ arr[i]['gsx$id']['$t'] ] = temp;
     }
     return out;
@@ -109,14 +111,16 @@ function helper(arr){
 // добавляємо саму корзину
 function showBasket(){
     let ul = document.querySelector('.basket');
+    
     ul.innerHTML = '';
     let sum = 0;
     for(let key in basket){
         let li = '<li>';
+        li += 'id'+goods[key]['id']+' ';
         li += goods[key]['name']+' ';
-        li += ` <button name="minus-goods" data="${key}">-</button>`;
-        li += basket[key] + 'шт ';
         li += ` <button name="plus-goods" data="${key}">+</button>`;
+        li += basket[key] + 'шт ';
+        li += ` <button name="minus-goods" data="${key}">-</button>`;
         li += goods[key]['cost']*basket[key]+'грн.';
         li += ` <button name="del-goods" data="${key}">Видалити</button>`;
         li += '</li>';
@@ -124,10 +128,32 @@ function showBasket(){
         ul.innerHTML += li;
      }
      ul.innerHTML += 'Всього '+sum +'грн.';
+     nice();
+     function nice(){
+         let ni = document.querySelector('.file');
+         ni.innerHTML = '';
+         let sumi = 0;
+         for(let key in basket){
+             let li = '';
+             li += 'id'+goods[key]['id']+' ';
+             li += goods[key]['name']+' ';
+             li += basket[key] + 'шт ';
+             li += goods[key]['cost']*basket[key]+'грн.';
+             sumi += goods[key]['cost']*basket[key];
+             li += '|||';
+             ni.innerHTML += li;
+
+          }
+          ni.innerHTML += 'Всього '+sumi +'грн.';
+     };
+
 }
 
 
 }
+
+$( ".goods" ).click(function() {
+    $( this ).slideUp();});
 
 $( document ).ready(function(){
     $( ".basket-div" ).hide();
@@ -169,4 +195,37 @@ $( document ).ready(function(){
       }
   }
 
-  
+  $('#site_form').submit(function(e){
+      e.preventDefault();
+      formSubmit();
+  })
+  function formSubmit(){
+    var emailSubmitName = $('#emailClient').val();
+    var nameSubmitName = $('#nameClient').val();
+    var phoneSubmitName = $('#phone').val();
+    var fileSubmitName = $('#file').val(); 
+        if(nameSubmitName != '' && phoneSubmitName != ''){
+            var $form = $('#site_form'), 
+            // var info= {
+            //     email: emailSubmitName,
+            //     name: nameSubmitName,
+            //     phone: phoneSubmitName,
+            //     goods: fileSubmitName,
+            // };
+            // console.log(info);
+            url = 'https://script.google.com/macros/s/AKfycbyCCIHBOER6Hexo-Y5pAi4Z5ict_SikUroTLZDzgfCXzm3GMHU/exec'
+            $.ajax({
+                url: url,
+                method: "GET",
+                dataType: "json",
+                data: $form.serialize(),
+                success: function(response){
+                    modal.style.display = "none";
+                    $('#site_form')[0].reset();
+                    return true
+                }
+            })
+        } else{
+            return false
+        }
+  }
