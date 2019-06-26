@@ -145,15 +145,9 @@ function showBasket(){
 
           }
           ni.innerHTML += 'Всього '+sumi +'грн.';
-     };
-
+        };
+    }
 }
-
-
-}
-
-$( ".goods" ).click(function() {
-    $( this ).slideUp();});
 
 $( document ).ready(function(){
     $( ".basket-div" ).hide();
@@ -187,7 +181,7 @@ $( document ).ready(function(){
   let span = document.getElementsByClassName("close")[0];
 
   btn.onclick = function(){
-      modal.style.display = "block";
+        modal.style.display = "block";
   }
   window.onclick = function(){
       if(event.target == modal){
@@ -204,15 +198,9 @@ $( document ).ready(function(){
     var nameSubmitName = $('#nameClient').val();
     var phoneSubmitName = $('#phone').val();
     var fileSubmitName = $('#file').val(); 
-        if(nameSubmitName != '' && phoneSubmitName != ''){
+        if(nameSubmitName != '' && phoneSubmitName != '' ){
             var $form = $('#site_form'), 
-            // var info= {
-            //     email: emailSubmitName,
-            //     name: nameSubmitName,
-            //     phone: phoneSubmitName,
-            //     goods: fileSubmitName,
-            // };
-            // console.log(info);
+    
             url = 'https://script.google.com/macros/s/AKfycbyCCIHBOER6Hexo-Y5pAi4Z5ict_SikUroTLZDzgfCXzm3GMHU/exec'
             $.ajax({
                 url: url,
