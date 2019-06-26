@@ -1,7 +1,7 @@
 window.onload = function(){
-    let basket= bas = {}; 
+    let basket = {}; 
     let goods= {};
- 
+
 // перевіряємо чи пуста корзина
     function loadGoodsToBasket(){
         if(localStorage.getItem('basket') != null){
@@ -30,15 +30,14 @@ loadGoodsToBasket();
 // підключаю дані з google tabs 
     getJSON('https://spreadsheets.google.com/feeds/list/1vRD_wLzqPdST_zP_Tk8u0ApDXN-TDsOVYRtjdGtpNi0/od6/public/values?alt=json', 
     function(err, data){
-            data = data['feed']['entry'];
+            data = neo= data['feed']['entry'] ;
             goods = helper(data);
-   console.log(goods);
             // міняю вміст Div на товар
-            document.querySelector(".shop-field").innerHTML = showGoods(data);
+            topgoods(data);
+            showGoods(data);
             showBasket();
         // }
     }); 
-
 // функція, що відображає інформацію з товаром
 function showGoods(data){
     var out = '';
@@ -54,10 +53,26 @@ function showGoods(data){
             out += `</div>`;
             out += `</div>`;
         }
-    }
+    }document.querySelector(".shop-field").innerHTML = out;
+    return out;
+}  
+function topgoods(data){
+    var out = '';
+    for(var i = 0; i<data.length; i++){
+        if(data[i]['gsx$show']['$t'] !=0 && data[i]['gsx$top']['$t'] =='1'){
+            out += `<div class="${data[i]['gsx$class']['$t']} col-6 col-lg-3 col-md-4 text-center">`;
+            out += `<div class="goods" id="${data[i]['gsx$id']['$t']}">`; 
+            out += `<h3 class="goodsName">${data[i]['gsx$name']['$t']}</h3>`;
+            out += `<img class="img rounded mx-auto d-block" src="${data[i]['gsx$image']['$t']}" alt="">`;
+            out += `<p class="cost">Ціна: ${data[i]['gsx$cost']['$t']}грн.</p>`;
+            out += `<p class="about">${data[i]['gsx$about']['$t']}</p>`;
+            out += `<p><button type="button" class="btn btn-success" name="addgood" data="${data[i]['gsx$id']['$t']}">В корзину</button></p>`;
+            out += `</div>`;
+            out += `</div>`;
+        }
+    }document.querySelector(".topgoods").innerHTML = out;
     return out;
 } 
-
 // якщо нажати на кнопку "В корзину" запуститься функція для додавання товару
 document.onclick = function(e){
     if(e.target.attributes.name != undefined){
@@ -145,9 +160,10 @@ function showBasket(){
 
           }
           ni.innerHTML += 'Всього '+sumi +'грн.';
-        };
+         };
     }
 }
+
 
 $( document ).ready(function(){
     $( ".basket-div" ).hide();
@@ -181,7 +197,7 @@ $( document ).ready(function(){
   let span = document.getElementsByClassName("close")[0];
 
   btn.onclick = function(){
-        modal.style.display = "block";
+      modal.style.display = "block";
   }
   window.onclick = function(){
       if(event.target == modal){
@@ -198,9 +214,8 @@ $( document ).ready(function(){
     var nameSubmitName = $('#nameClient').val();
     var phoneSubmitName = $('#phone').val();
     var fileSubmitName = $('#file').val(); 
-        if(nameSubmitName != '' && phoneSubmitName != '' ){
+        if(nameSubmitName != '' && phoneSubmitName != ''){
             var $form = $('#site_form'), 
-    
             url = 'https://script.google.com/macros/s/AKfycbyCCIHBOER6Hexo-Y5pAi4Z5ict_SikUroTLZDzgfCXzm3GMHU/exec'
             $.ajax({
                 url: url,
@@ -217,3 +232,4 @@ $( document ).ready(function(){
             return false
         }
   }
+  
