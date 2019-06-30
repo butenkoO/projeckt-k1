@@ -13,7 +13,9 @@ ul{
     flex-direction: column;
     list-style: none;
 }
-
+li:hover{
+    cursor: pointer;
+}
 .goods{
     justify-content: center;
     position: relative;
@@ -66,9 +68,25 @@ ul{
     width: 1000px;
     background-color: #fefefe;
     }
-#file{
+#file, #cantsee{
     display: none;
 }
-#cantsee{
-    display: none;
+.fiter{
+    position: sticky;
+    top: 10px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px; 
 }
+#about{
+    display: block;
+    position: fixed;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    color: #fefefe;
+    }
