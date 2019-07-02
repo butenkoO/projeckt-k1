@@ -11,12 +11,10 @@ ul{
     flex-direction: column;
     list-style: none;
 }
-li:hover{
+li:hover, .close:hover, [name="aboutBtn"]:hover{
     cursor: pointer;
 }
-[name="aboutBtn"]:hover{
-    cursor: pointer;
-}
+
 .goods{
     justify-content: center;
     position: relative;

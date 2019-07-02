@@ -250,7 +250,7 @@ $( document ).ready(function(){
     modal.style.display = "block";
   }
   closeA.onclick = function(){
-    modal.style.display = "block";
+    modal.style.display = "none";
   };
   window.onclick = function(){
     if(event.target == modal){
