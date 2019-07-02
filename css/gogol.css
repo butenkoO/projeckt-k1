@@ -8,15 +8,13 @@ body{
 }
 ul{
     position: relative;
-    height: 10vh;
-    display: flex;
     flex-direction: column;
     list-style: none;
 }
 li:hover{
     cursor: pointer;
 }
-#aboutBtn:hover{
+[name="aboutBtn"]:hover{
     cursor: pointer;
 }
 .goods{
@@ -65,7 +63,8 @@ li:hover{
     background-color: rgba(0,0,0,0.8);
     }
 .modalContent{
-    position:   absolute;
+    position: absolute;
+    border-radius: 5px;
     top: 25%;
     left: 15%;
     padding: 30px;
@@ -107,5 +106,24 @@ li:hover{
     color: black;
 }
 .contentName{
-    align-items: center;
+    margin: 5% auto;
+    text-align: center;
+}
+#contentImage{
+    position: absolute;
+    margin: 0 25px 25px 75px;
+    width: 250px;
+    height: 400px;
+}
+.contentCost{
+    position: absolute;
+    top: 23%;
+    left: 40%;
+    
+}
+.contentAbout{
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    
 }

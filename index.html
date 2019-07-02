@@ -10,29 +10,35 @@
     <title>Gogol shop</title>
   </head>
   <body>
+      <div id="about">
+          <div class="aboutContent">
+            <p class="contentName"></p>
+            <img id="contentImage" src="">
+            <p class="contentCost"></p>
+            <p class="contentAbout"></p>
+          </div>
+        </div>
           <div class="container" >
            <div class="row"> 
-             <i style='font-size:44px'  id='bas' class='fas bas slide-toggle'>&#xf155;</i>
+              <i style='font-size:44px'  id='bas' class='fas bas slide-toggle'>&#xf07a;</i>
             <div class="basket-div col-lg-12">
             <div class=" text-center">Корзина</div>
                 <ul class="basket" id="basket"></ul>
                 <button id="buy-btn">Купити</button>
                 <div id="modal">
-                <div class="modal-content">
-                  <p>Для замовлення товару залиште контактні дані і менеджер звяжеться з Вами в найближчий час</p>
-
-                  <form name="site_form" id="site_form" class="site_form">
-                    <label for="nameClien">Імя</label><br>
-                    <input type="text" id="nameClient" name="nameClient" placeholder="Імя" required>
-                    <label for="emailClient">Електронна адреса</label><br>
-                    <input type="email" id="emailClient" name="emailClient" placeholder="your@mail">
-                    <label for="phone">Контактний телефон</label><br>
-                    <input type="tel" id="phone" name="phone" placeholder="+380" required>
-                    <textarea class="file" name="file" id="file"></textarea><Br>
-                    <button type="submit" value="SUBMIT" id="submit">Відправити</button>
-                  </form>
-
-                </div>
+                    <div class="modal-content">
+                      <p>Для замовлення товару залиште контактні дані і менеджер звяжеться з Вами в найближчий час</p>
+                      <form name="site_form" id="site_form" class="site_form">
+                        <label for="nameClien">Імя</label><br>
+                        <input type="text" id="nameClient" name="nameClient" placeholder="Імя" required>
+                        <label for="emailClient">Електронна адреса</label><br>
+                        <input type="email" id="emailClient" name="emailClient" placeholder="your@mail">
+                        <label for="phone">Контактний телефон</label><br>
+                        <input type="tel" id="phone" name="phone" placeholder="+380" required>
+                        <textarea class="file" name="file" id="file"></textarea><Br>
+                        <button type="submit" value="SUBMIT" id="submit">Відправити</button>
+                      </form>
+                    </div>
               </div>
             </div>
         </div>

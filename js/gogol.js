@@ -8,6 +8,7 @@ window.onload = function(){
     function loadGoodsToBasket(){
         if(localStorage.getItem('basket') != null){
         basket = JSON.parse(localStorage.getItem('basket'));
+        ledBasket();
         }
     }
         // запускаю функції для підгрузки товару з локал сторидж
@@ -90,37 +91,44 @@ window.onload = function(){
                     delete basket[e.target.attributes.data.nodeValue];
                     showBasket();
                     localStorage.setItem('basket', JSON.stringify(basket));
+                    ledBasket();
                 //  плюсує товар в корзині + перезаписує корзину + оновлює локал сторидж
                 } else if(e.target.attributes.name.nodeValue == 'plus-goods'){
                     basket[e.target.attributes.data.nodeValue]++;
                     showBasket();
                     localStorage.setItem('basket', JSON.stringify(basket));
+                    ledBasket();
                 //  мінусує товар з корзини + перезаписує корзину + оновлює локал сторидж
                 } else if(e.target.attributes.name.nodeValue == 'minus-goods'){
                     // якщо в корзині залишився 1 товар, ми його мінусуємо - товар видаляється з корзини
                     if(basket[e.target.attributes.data.nodeValue] -1 == 0) {
                         delete basket[e.target.attributes.data.nodeValue];
+                        ledBasket();
                     // якщо в корзині ще є товар то просто мінусується на 1
                     } else {basket[e.target.attributes.data.nodeValue]--;}
                     showBasket();
                     localStorage.setItem('basket', JSON.stringify(basket));
+                    ledBasket();
                     // відкриває модульне вікно + додає в нього товар по якому клікнув
                     } else if(e.target.attributes.name.nodeValue === 'aboutBtn'){
                         document.getElementById('about').style.display = "block"
                         let selectedGoodsId = e.target.attributes.id.nodeValue;
                         selectedGoods = goods[selectedGoodsId];
                         document.querySelector(".contentName").innerHTML =selectedGoods.name;
-                        document.querySelector(".contentCost").innerHTML =selectedGoods.cost;
+                        document.querySelector(".contentCost").innerHTML ="Ціна: " + selectedGoods.cost + "грн.";
                         document.querySelector(".contentAbout").innerHTML =selectedGoods.about;
                         document.getElementById('contentImage').src=selectedGoods.image;};
                         window.onclick = function(){
+                            let modal = document.getElementById('modal');
                             if(event.target == about){
                             about.style.display = "none";
-                            }
-                        }
+                            }if(event.target == modal){
+                                modal.style.display = "none";
+                              }
+                          }
         }
     }
- 
+  
     // Добавляю товар в корзину (функція)
         function addGoods(elem){
             // якщо в обєкті баскет є елемент, який пробують добавити в корзину - він плюсується 
@@ -134,7 +142,9 @@ window.onload = function(){
             showBasket();
             // добавляємо вміст корзини в локальну память
             localStorage.setItem('basket', JSON.stringify(basket));
+            ledBasket();
         }
+
         //  функція перебирає goods для простішого звернення для нього
         function helper(arr){
             let out = {};
@@ -192,6 +202,12 @@ window.onload = function(){
           ni.innerHTML += 'Всього '+sumi +'грн.';
          };
     }
+  function ledBasket(){
+        if(localStorage.getItem('basket') != '{}'){
+            document.querySelector("#bas").style.backgroundColor = 'red';
+        } else {document.querySelector("#bas").style.backgroundColor = '';}
+    };
+
 }
 
 // при завантеженні сторінки корзина закрита
@@ -228,21 +244,20 @@ $( document ).ready(function(){
 //  при нажатті на кнопку купити відкривається вікно з формою 
   let modal = document.getElementById('modal');
   let btn = document.getElementById("buy-btn");
-  let close = document.getElementsByClassName('close');
+  let closeA = document.querySelector(".close");
 
   btn.onclick = function(){
     modal.style.display = "block";
   }
-  close.onclick = function(){
+  closeA.onclick = function(){
     modal.style.display = "block";
   };
   window.onclick = function(){
     if(event.target == modal){
         modal.style.display = "none";
-      } else if(event.target == close){
-          modal.style.display = "none";
-        };
-  }
+    }
+};
+
     //   відправка форми на google sheets при нажаттні на submit
     $('#site_form').submit(function(e){
         e.preventDefault();
