@@ -47,11 +47,11 @@ window.onload = function(){
         for(var i = 0; i<data.length; i++){
             if(data[i]['gsx$show']['$t'] !=0){
                 out += `<div class="${data[i]['gsx$class']['$t']} col-6 col-lg-3 col-md-4 text-center">`;
-                out += `<div class="goods" id="${data[i]['gsx$id']['$t']}">`; 
+                out += `<div class="goods" name="goods" >`; 
                 out += `<h3 class="goodsName">${data[i]['gsx$name']['$t']}</h3>`;
                 out += `<img class="img rounded mx-auto d-block" src="${data[i]['gsx$image']['$t']}" alt="">`;
                 out += `<p class="cost">Ціна: ${data[i]['gsx$cost']['$t']}грн.</p>`;
-                out += `<p class="about">${data[i]['gsx$about']['$t']}</p>`;
+                out += `<p name="aboutBtn" id="${data[i]['gsx$id']['$t']}" class="aboutBtn">Детальніше про товар</p>`;
                 out += `<p><button type="button" class="btn btn-success" name="addgood" data="${data[i]['gsx$id']['$t']}">В корзину</button></p>`;
                 out += `</div>`;
                 out += `</div>`;
@@ -66,11 +66,11 @@ window.onload = function(){
         for(var i = 0; i<data.length; i++){
             if(data[i]['gsx$show']['$t'] !=0 && data[i]['gsx$top']['$t'] =='1'){
                 out += `<div class="${data[i]['gsx$class']['$t']} col-6 col-lg-3 col-md-4 text-center">`;
-                out += `<div class="goods" id="${data[i]['gsx$id']['$t']}">`; 
+                out += `<div  class="goods" name="goods" >`; 
                 out += `<h3 class="goodsName">${data[i]['gsx$name']['$t']}</h3>`;
                 out += `<img class="img rounded mx-auto d-block" src="${data[i]['gsx$image']['$t']}" alt="">`;
                 out += `<p class="cost">Ціна: ${data[i]['gsx$cost']['$t']}грн.</p>`;
-                out += `<p class="about">${data[i]['gsx$about']['$t']}</p>`;
+                out += `<p name="aboutBtn" id="${data[i]['gsx$id']['$t']}" class="aboutBtn">Детальніше про товар</p>`;
                 out += `<p><button type="button" class="btn btn-success" name="addgood" data="${data[i]['gsx$id']['$t']}">В корзину</button></p>`;
                 out += `</div>`;
                 out += `</div>`;
@@ -80,18 +80,8 @@ window.onload = function(){
     } 
     // перелік певних дій в залежності від наших кліків
     document.onclick = function(e){
-        let selectedGoodsId = e.target.attributes.id.nodeValue;
-        selectedGoods = goods[selectedGoodsId];
-        console.log(selectedGoods);
-        aboutf();
-        function aboutf(){
-            let out = '';
-            out += selectedGoods.name;
-            out += selectedGoods.image;
-            document.querySelector("#about").innerHTML = out;
-        };
         // якщо зробити клік по області в якій немає імені - функція не буде запускатись
-        if(e.target.attributes.name != undefined){
+         if(e.target.attributes.name != undefined){
             // при кліку по кнопці з іменем addgood запускає функцію по добавлянню товару в корзину 
             if(e.target.attributes.name.nodeValue == 'addgood'){
                 addGoods(e.target.attributes.data.nodeValue);
@@ -114,10 +104,23 @@ window.onload = function(){
                     } else {basket[e.target.attributes.data.nodeValue]--;}
                     showBasket();
                     localStorage.setItem('basket', JSON.stringify(basket));
-                    }
+                    // відкриває модульне вікно + додає в нього товар по якому клікнув
+                    } else if(e.target.attributes.name.nodeValue === 'aboutBtn'){
+                        document.getElementById('about').style.display = "block"
+                        let selectedGoodsId = e.target.attributes.id.nodeValue;
+                        selectedGoods = goods[selectedGoodsId];
+                        document.querySelector(".contentName").innerHTML =selectedGoods.name;
+                        document.querySelector(".contentCost").innerHTML =selectedGoods.cost;
+                        document.querySelector(".contentAbout").innerHTML =selectedGoods.about;
+                        document.getElementById('contentImage').src=selectedGoods.image;};
+                        window.onclick = function(){
+                            if(event.target == about){
+                            about.style.display = "none";
+                            }
+                        }
         }
     }
-
+ 
     // Добавляю товар в корзину (функція)
         function addGoods(elem){
             // якщо в обєкті баскет є елемент, який пробують добавити в корзину - він плюсується 
@@ -225,15 +228,20 @@ $( document ).ready(function(){
 //  при нажатті на кнопку купити відкривається вікно з формою 
   let modal = document.getElementById('modal');
   let btn = document.getElementById("buy-btn");
-  let span = document.getElementsByClassName("close")[0];
+  let close = document.getElementsByClassName('close');
 
   btn.onclick = function(){
-      modal.style.display = "block";
+    modal.style.display = "block";
   }
+  close.onclick = function(){
+    modal.style.display = "block";
+  };
   window.onclick = function(){
-      if(event.target == modal){
+    if(event.target == modal){
         modal.style.display = "none";
-      }
+      } else if(event.target == close){
+          modal.style.display = "none";
+        };
   }
     //   відправка форми на google sheets при нажаттні на submit
     $('#site_form').submit(function(e){

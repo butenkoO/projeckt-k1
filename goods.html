@@ -6,40 +6,60 @@
     <link rel="stylesheet" href="css/gogol.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-
     <title>Gogol shop</title>
   </head>
   <body>
-          <div class="container" >
+    <div id="about">
+      <div class="aboutContent">
+        <p class="contentName"></p>
+        <img id="contentImage" src="">
+        <p class="contentCost"></p>
+        <p class="contentAbout"></p>
+      </div>
+    </div>
+    <div class="fiter">  
+      <ul>
+      <li class="all">Всі товари</li>
+      <li class="pullover">Кофти</li>
+      <li class="T-shirt">Футболки</li>
+      <li class="jacket">Куртки</li>
+      <li class="bomber">Бомбери</li>
+      <li class="pants">Штани</li>
+      <li class="shorts">Шорти</li>
+      <li class="bags">Рюкзаки</li>
+      <li class="mini-bags">Сумки бананки</li>
+      <li class="cap">Кепки</li>
+      <li class="balaclava">Балаклави</li>
+      </ul>
+    </div>
+        <div class="container cont" >
            <div class="row"> 
-             <i style='font-size:44px'  id='bas' class='fas bas slide-toggle'>&#xf155;</i>
+             <i style='font-size:44px'  id='bas' class='fas bas slide-toggle'>&#xf07a;</i>
             <div class="basket-div col-lg-12">
             <div class=" text-center">Корзина</div>
                 <ul class="basket" id="basket"></ul>
                 <button id="buy-btn">Купити</button>
                 <div id="modal">
-                <div class="modal-content">
+                  <div class="close">X</div>
+                <div class="modalContent">
                   <p>Для замовлення товару залиште контактні дані і менеджер звяжеться з Вами в найближчий час</p>
-
                   <form name="site_form" id="site_form" class="site_form">
                     <label for="nameClien">Імя</label><br>
-                    <input type="text" id="nameClient" name="nameClient" placeholder="Імя" required>
+                    <input type="text" id="nameClient" name="nameClient" placeholder="Імя" required><br>
                     <label for="emailClient">Електронна адреса</label><br>
-                    <input type="email" id="emailClient" name="emailClient" placeholder="your@mail">
+                    <input type="email" id="emailClient" name="emailClient" placeholder="your@mail"><br>
                     <label for="phone">Контактний телефон</label><br>
-                    <input type="tel" id="phone" name="phone" placeholder="+380" required>
+                    <input type="tel" id="phone" name="phone" placeholder="+380" required><br>
                     <textarea class="file" name="file" id="file"></textarea><Br>
                     <button type="submit" value="SUBMIT" id="submit">Відправити</button>
                   </form>
-
                 </div>
               </div>
             </div>
         </div>
-        <div  class="row topgoods">
-        </div><br>
-        <div id="cantsee" class="row shop-field">
-        </div> 
+            <div id="cantsee" class="row topgoods">
+            </div><br>
+            <div class="row shop-field">
             </div>
           </div>
     </div>
