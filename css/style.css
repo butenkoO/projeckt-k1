@@ -44,25 +44,21 @@ body {
 
 ul {
 width: 100%;	
-  list-style-type: none;
-  margin: 0px;
+  margin: 50px;
   padding: 0px;
-  overflow: hidden;
-  background-color: #fff;
+  background-color: black;
 }
 
-li {
-  float: left;
+
+.ins{
+text-align: center;
 }
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
+.ins1 {
+text-indent: 30px;
+border: 2px solid white;
+padding: 15px;
 }
-
-li a:hover {
-  background-color: #111111;
+.boderins {
+border: 2px solid red;
 }
