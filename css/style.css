@@ -1,25 +1,3 @@
-.insnav {
-	margin: 0px;
-	padding: 0px;
-	background-color: white;
-	color: black;
-	width: 100%;
-  height: 30px; 
-	display: block;
-	position: static;
-	
-}
-.insheader {
-	position: static;
-	margin: 0px ;
-	padding-bottom: 10px;
-	width: 100%;
-  height: 60px;
-	display: block;
-	background-color: #000;
-	color: white;
-}
-
 
 .insmain {
 	background-color: #fff;
@@ -37,17 +15,17 @@
 body {
 	margin: 0px;
 	border: none;
-	padding-bottom: 0px;
+	padding: 0px;
 	font-family: 'Cuprum', sans-serif;
 }
 
 
-ul {
+/*ul {
 width: 100%;	
   margin: 50px;
   padding: 0px;
   background-color: black;
-}
+}*/
 
 
 .ins{
@@ -61,4 +39,12 @@ padding: 15px;
 }
 .boderins {
 border: 2px solid red;
+}
+
+footer {
+  display: block;
+  position: static;
+  background-color: black;
+  height: 100%;
+  width: 100%;
 }
