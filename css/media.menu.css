@@ -1,0 +1,46 @@
+.dws-menu [type="checkbox"]{
+display: none;
+}
+.dws-menu label.minmenu{
+	background: #000000;
+	display: none;
+	padding: 20px 25px;
+	text-transform: uppercase;
+	font-size: 1.1em;
+	cursor: pointer;
+	position: relative;
+	color: #fff;
+}
+.dws-menu label img{
+	padding-right: 10px;
+}
+
+@media all and (max-width: 800px){
+.dws-menu{
+	overflow: hidden;
+}
+.dws-menu ul{
+	display: none;
+	background-color: #535055;
+	margin: 0;
+}
+.dws-menu label.minmenu{
+	display: block;
+	background-color: #000000;
+}
+
+input.minmenu:checked ~ ul{
+	display: block;
+	position: relative;
+	margin: 0;
+}
+.dws-menu > ul li a{
+	margin: 0;
+	border: 1px solid #000;
+}
+
+.dws-menu ul img{
+	display: none;
+}
+
+}
