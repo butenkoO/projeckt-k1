@@ -67,6 +67,7 @@ window.onload = function(){
         for(var i = 0; i<data.length; i++){
             if(data[i]['gsx$show']['$t'] !=0 && data[i]['gsx$top']['$t'] =='1'){
                 out += `<div class="${data[i]['gsx$class']['$t']} col-6 col-lg-3 col-md-4 text-center">`;
+                out += `<img class="imgHot rounded mx-auto d-block" src="image/hot.png" alt="">`;
                 out += `<div  class="goods" name="goods" >`; 
                 out += `<h3 class="goodsName">${data[i]['gsx$name']['$t']}</h3>`;
                 out += `<img class="img rounded mx-auto d-block" src="${data[i]['gsx$image']['$t']}" alt="">`;
@@ -114,6 +115,7 @@ window.onload = function(){
                         document.getElementById('about').style.display = "block"
                         let selectedGoodsId = e.target.attributes.id.nodeValue;
                         selectedGoods = goods[selectedGoodsId];
+               
                         document.querySelector(".contentName").innerHTML =selectedGoods.name;
                         document.querySelector(".contentCost").innerHTML ="Ціна: " + selectedGoods.cost + "грн.";
                         document.querySelector(".contentAbout").innerHTML =selectedGoods.about;
@@ -204,7 +206,7 @@ window.onload = function(){
     }
   function ledBasket(){
         if(localStorage.getItem('basket') != '{}'){
-            document.querySelector("#bas").style.backgroundColor = 'rgba(253, 166, 51, 0.8)';
+            // document.querySelector("#bas").style.backgroundColor = 'rgba(253, 166, 51, 0.8)';
             document.querySelector("#bas").style.boxShadow = '0 0 24px rgb(253, 166, 51)';
         } else {
             document.querySelector("#bas").style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
@@ -229,19 +231,49 @@ $( document ).ready(function(){
       $( "[class^=tovar]" ).show();
     });
 
-    $( ".qwe" ).click(function(){
+    $( ".pullover" ).click(function(){
         $( "[class^=tovar]" ).hide();
-        $( "[class*=short]" ).show();
+        $( "[class*=pullover]" ).show();
       });
 
-      $( ".asd" ).click(function(){
+      $( ".T-shirt" ).click(function(){
         $( "[class^=tovar]" ).hide();
-        $( "[class*=bag]" ).show();
+        $( "[class*=T-shirt]" ).show();
       });
 
-      $( ".zxc" ).click(function(){
+      $( ".jacket" ).click(function(){
         $( "[class^=tovar]" ).hide();
-        $( "[class*=pant]" ).show();
+        $( "[class*=jacket]" ).show();
+      });
+
+      $( ".pants" ).click(function(){
+        $( "[class^=tovar]" ).hide();
+        $( "[class*=pants]" ).show();
+      });
+
+      $( ".shorts" ).click(function(){
+        $( "[class^=tovar]" ).hide();
+        $( "[class*=shorts]" ).show();
+      });
+
+      $( ".bags" ).click(function(){
+        $( "[class^=tovar]" ).hide();
+        $( "[class*=bags]" ).show();
+      });
+
+      $( ".mini-bags" ).click(function(){
+        $( "[class^=tovar]" ).hide();
+        $( "[class*=mini-bag]" ).show();
+      });
+
+      $( ".cap" ).click(function(){
+        $( "[class^=tovar]" ).hide();
+        $( "[class*=cap]" ).show();
+      });
+
+      $( ".balaclava" ).click(function(){
+        $( "[class^=tovar]" ).hide();
+        $( "[class*=balaclava]" ).show();
       });
   });
 
