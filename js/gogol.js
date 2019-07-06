@@ -204,8 +204,12 @@ window.onload = function(){
     }
   function ledBasket(){
         if(localStorage.getItem('basket') != '{}'){
-            document.querySelector("#bas").style.backgroundColor = 'red';
-        } else {document.querySelector("#bas").style.backgroundColor = '';}
+            document.querySelector("#bas").style.backgroundColor = 'rgba(253, 166, 51, 0.8)';
+            document.querySelector("#bas").style.boxShadow = '0 0 24px rgb(253, 166, 51)';
+        } else {
+            document.querySelector("#bas").style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+            document.querySelector("#bas").style.boxShadow = '0 0 24px rgb(255, 255, 255)';
+        }
     };
 
 }
@@ -248,6 +252,7 @@ $( document ).ready(function(){
 
   btn.onclick = function(){
     modal.style.display = "block";
+    console.log(basket);
   }
   closeA.onclick = function(){
     modal.style.display = "none";
@@ -282,7 +287,9 @@ $( document ).ready(function(){
                         modal.style.display = "none";
                         alert('Дякуємо за покупку! В найближчий час менеджер обовязково звяжеться з Вами!');
                         localStorage.clear();
-                        location.reload();
+                        let emptyBasket = 'Корзина порожня!';
+                        document.querySelector(".basket").innerHTML = emptyBasket;
+                        document.querySelector("#bas").style.backgroundColor = '';
                         return true
                     }
                 })
@@ -291,4 +298,4 @@ $( document ).ready(function(){
                 return false
             }
     }
-    
+ 
