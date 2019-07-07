@@ -67,8 +67,8 @@ window.onload = function(){
         for(var i = 0; i<data.length; i++){
             if(data[i]['gsx$show']['$t'] !=0 && data[i]['gsx$top']['$t'] =='1'){
                 out += `<div class="${data[i]['gsx$class']['$t']} col-6 col-lg-3 col-md-4 text-center">`;
-                out += `<img class="imgHot rounded mx-auto d-block" src="image/hot.png" alt="">`;
-                out += `<div  class="goods" name="goods" >`; 
+                out += `<div class="goods" name="goods" >`;
+                out += `<div class="hot">HOT</div>`;
                 out += `<h3 class="goodsName">${data[i]['gsx$name']['$t']}</h3>`;
                 out += `<img class="img rounded mx-auto d-block" src="${data[i]['gsx$image']['$t']}" alt="">`;
                 out += `<p class="cost">Ціна: ${data[i]['gsx$cost']['$t']}грн.</p>`;

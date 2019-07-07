@@ -1,6 +1,3 @@
-*{
-   
-}
 body{
     overflow-x: hidden;
     margin: 10px; 
@@ -54,13 +51,20 @@ li>a{
     text-align: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 2px;
     height: 300px;
     width: 100%;
     overflow: hidden;
     background-color: rgb(255, 255, 255);
 }
-
+.hot{
+    display: inline-block;
+    padding:5px 10px 5px 10px;
+    background-color: rgb(231, 34, 34);
+    color:#fefefe;
+    position: relative;
+    float: left;
+}
 .imgHot{
     position: absolute;
     z-index: 500;
@@ -139,18 +143,20 @@ width: 95%;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.7);
+    box-shadow: 0 0 15px black;
     
     }
 .aboutContent{
     background-color: #fefefe;
-    border-radius: 10px;
+    border-radius: 2px;
     width: 70%;
     height: 70%;
     position: absolute;
     top: 15%;
     left: 15%;
     color: black;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 .contentName{
     margin: 5% auto;
