@@ -1,35 +1,48 @@
+/* _____________Загальні______________________ */
 body{
     overflow-x: hidden;
-    margin: 10px; 
     margin: 0;
     padding: 0;
     font-family: 'Cuprum', sans-serif;
-}
-ul{
+    }
+
+
+/* _______________________Панель меню____________________________ */
+ul.navMenu{
     position: relative;
     flex-direction: column;
     list-style: none;
     margin: 0;
     padding: 0;
-}
-li:hover, .close:hover, [name="aboutBtn"]:hover{
+    display: flex;
+    flex-direction: row; 
+    width: 100%;
+    height: 85px;
+    margin-top: 6%;
+    background-color: black;
+    text-align: center;
+    }
+
+.contactMenu{
+    margin-right: 10vw;
+    }
+
+.goodsMenu{
+    margin-right: 40vw;
+    margin-left: 12vw;
+    }
+
+li:hover, .close:hover, [name="aboutBtn"]:hover, .closeMod p{
     cursor: pointer;
-}
+    }
+
 .logoGS{
     position: absolute;
     z-index: 2;
     top: -8vh;
     left: 41%;
-}
-ul.navMenu{
-    display: flex;
-    flex-direction: row; 
-    width: 100vw;
-    height: 10vh;
-    margin-top: 8vh;
-    background-color: black;
-    text-align: center;
-}
+    }
+
 li>a{
     color: #fefefe;
     position: relative;
@@ -37,58 +50,96 @@ li>a{
     margin-right: 20px;
     text-decoration: none;
     font-size: 26px;
-}
-.goodsMenu{
-    margin-right: 40vw;
-    margin-left: 12vw;
-}
-.contactMenu{
-    margin-right: 10vw;
-}
+    }
+
+
+/* ___________________Відображення товару________________________ */
 .goods{
+    margin: 0;
+    padding: 0;
     justify-content: center;
     position: relative;
     text-align: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border-radius: 2px;
-    height: 300px;
-    width: 100%;
+    height: 350px;
+    width: 255px;
     overflow: hidden;
     background-color: rgb(255, 255, 255);
-}
+    }
+
 .hot{
     display: inline-block;
-    padding:5px 10px 5px 10px;
+    padding:5px 15px 5px 15px;
     background-color: rgb(231, 34, 34);
     color:#fefefe;
-    position: relative;
-    float: left;
-}
-.imgHot{
     position: absolute;
-    z-index: 500;
-    left: 65%;
-}
-.goods>img{
-width: 95%;
+    left: 0;
+    top: 0;
+    z-index: 150;
+    box-shadow: 0 0 5px rgba(0,0,0,0.7);
+    }
 
-}
+.goodsName{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    left: 0;
+    padding-top: 17px;
+    background-color: rgba(236, 236, 236, 0.6);
+    color: rgb(70, 69, 69);
+    text-shadow: 1px 1px 2px #fefefe;
+    margin: auto;
+    }
+
+.cost{
+    margin: 0;
+    padding-top: 15px;
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    left: 0;
+    top: 350px;
+    background-color: rgba(236, 236, 236, 0.4);
+    color: rgb(29, 29, 29);
+    text-shadow: 1px 1px 5px #f3f7c1;
+    vertical-align:middle;
+    font-size: 20px;
+    }
+
+.goods>.img{
+width: 98%;
+overflow: hidden;
+    }
+
 .goods:hover{
-    transition-duration: 550ms;
     height: auto;
     position: absolute;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    z-index: 501;
-}
+    z-index: 200;
+    }
+
+
+/* ___________________Корзина_____________________ */
 .basket{
     width: 1000px;
     justify-content: center;
     margin-left: 30px;
+    }
+
+.basket-div{
+    margin-bottom: 20px;
 }
+
 .basket-div ul{
     height: auto;
-}
+    }
+
 #bas{
     display: absolute;
     z-index: 700;
@@ -100,8 +151,10 @@ width: 95%;
     background-color:rgba(255, 255, 255, 0.3);
     padding: 10px;
     border-radius: 50%;
-}
+    }
 
+
+/* __________________Модельне вікно замовлення______________________ */
 #modal{
     display: none;
     position: fixed;
@@ -113,6 +166,7 @@ width: 95%;
     overflow: auto;
     background-color: rgba(0,0,0,0.8);
     }
+
 .modalContent{
     position: absolute;
     border-radius: 5px;
@@ -124,16 +178,26 @@ width: 95%;
     height: 45%;
     background-color: #fefefe;
     }
+
 #file, #cantsee{
     display: none;
-}
+    }
+
+
+/* __________________________Фільтр___________________________________________ */
 .fiter{
     position: sticky;
     top: 10px;
     float: left;
     margin-left: 10px;
     margin-top: 10px; 
+    }
+.fiter ul{
+    list-style: none;
 }
+
+
+/* ____________________Детальний опис товару______________________________ */
 #about{
     display: none;
     position: fixed;
@@ -145,8 +209,26 @@ width: 95%;
     overflow: auto;
     background-color: rgba(0,0,0,0.7);
     box-shadow: 0 0 15px black;
-    
     }
+
+.closeMod{
+    border: 2px solid black;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: 99%;
+    width: 22px;
+    height: 22px;
+    background-color: #fefefe;
+    }
+
+.closeMod p{
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    }   
+
 .aboutContent{
     background-color: #fefefe;
     border-radius: 2px;
@@ -157,30 +239,42 @@ width: 95%;
     left: 15%;
     color: black;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
+    }
+
 .contentName{
     margin: 5% auto;
     text-align: center;
-}
+    }
+
 #contentImage{
     position: absolute;
     margin: 0 25px 25px 75px;
     height: 70%;
-}
+    }
+
 .contentCost{
     position: absolute;
     top: 23%;
     left: 40%;
     margin: 0 2% 2% 2%;
-    
-}
+    }
+
 .contentAbout{
     position: absolute;
     left: 40%;
     top: 30%;
     margin: 0 2% 2% 2%;
-}
+    }
 
+.textAbout{
+    width: 80vw;
+    text-align: justify;    
+    margin: 0 auto;
+    font-size: 18px;
+    }
+
+
+/* _____________________________Слайдер__________________________________ */
 .slider{
     width: 100%;
     height: 50%;
@@ -188,14 +282,15 @@ width: 95%;
     left: 0%; 
     overflow: hidden;    
     }
+
 .black{
     background-color: black;
     display: inline-block;
     height: 2vh;
     width: 100vw;
-}
+    }
 
-.navi {
+.navi{
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -212,51 +307,36 @@ width: 95%;
     transition: 0.4s;
     }
 
-    .bar:hover{
-        background-color: #fff;
+.bar:hover{
+    background-color: #fff;
     }
 
-    input[name="r"]{
-        position: absolute;
-        visibility: hidden;
-        }
-
-    .slides{
-        width: 500%;
-        height: 100%;
-        display: flex;
-        animation: slide 20s infinite;
+input[name="r"]{
+    position: absolute;
+    visibility: hidden;
     }
+
+.slides{
+    width: 500%;
+    height: 100%;
+    display: flex;
+    animation: slide 20s infinite;
+    }
+
 .insmain{
     font-size: 25px;
     text-align: center;
-}
-.textAbout{
-    width: 80vw;
-    text-align: justify;    
-    margin: 0 auto;
-    font-size: 18px;
-}
+    }
 
-    .slide{
-        width: 20%;
-        transition: 0.6s;
-        }
+.slide{
+    width: 20%;
+    transition: 0.6s;
+    }
 
-        .slide img{
-            width: 100%;
-            height: 100%;
-        }
-        
-        #r1:checked ~ .s1{
-            margin-left: 0; 
-        }
-        #r2:checked ~ .s1{
-            margin-left: -20%; 
-        }
-        #r3:checked ~ .s1{
-            margin-left: -40%;}
-            
+.slide img{
+    width: 100%;
+    height: 100%;
+    }
             @keyframes slide {
 
                 0% {
@@ -272,4 +352,4 @@ width: 95%;
                     margin-left: -100%;;
                 }
             }
-          
+
