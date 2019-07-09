@@ -357,23 +357,35 @@ input[name="r"]{
     width: 80%;
     margin: 0 auto;
     text-indent: 30px;
-
-
 }
 .textdescribe {
     text-align: justify;
 }
-.textcenter {
+.textcenterred {
     text-align: center;
     color: red;
 }
+.textcenter {
+    text-align: center;
+}
+.mapview {
+    width: 450px;
+    height: 250px;
+    border: 0px;
+}
+
 footer {
   display: block;
-  position: static;
+  position: relative;
   background-color: rgba(0,0,0,0.9);
-  height: 100%;
   width: 100%;
+}
+.logosizefooter {
+    width: 12em;
+    height: 6em; 
 }
 .socialm {
     color: white;
+    font-size: 40px;
+    margin-right: 10px;
 }
