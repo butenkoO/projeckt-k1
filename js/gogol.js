@@ -52,8 +52,8 @@ window.onload = function(){
                 out += `<h3 class="goodsName">${data[i]['gsx$name']['$t']}</h3>`;
                 out += `<img class="img rounded mx-auto d-block" src="${data[i]['gsx$image']['$t']}" alt="">`;
                 out += `<p class="cost">Ціна: ${data[i]['gsx$cost']['$t']}грн.</p>`;
-                out += `<p name="aboutBtn" id="${data[i]['gsx$id']['$t']}" class="aboutBtn">Детальніше про товар</p>`;
-                out += `<p><button type="button" class="btn btn-success" name="addgood" data="${data[i]['gsx$id']['$t']}">В корзину</button></p>`;
+                out += `<p><button type="button" class="btn btn1" name="addgood" id="${data[i]['gsx$id']['$t']}">В корзину</button></p>`;
+                out += `<p><button name="aboutBtn" id="${data[i]['gsx$id']['$t']}" class="btn btn2 aboutBtn">Детальніше</button></p>`;
                 out += `</div>`;
                 out += `</div>`;
             }
@@ -72,8 +72,8 @@ window.onload = function(){
                 out += `<h3 class="goodsName">${data[i]['gsx$name']['$t']}</h3>`;
                 out += `<img class="img rounded mx-auto d-block" src="${data[i]['gsx$image']['$t']}" alt="">`;
                 out += `<p class="cost">Ціна: ${data[i]['gsx$cost']['$t']}грн.</p>`;
-                out += `<p name="aboutBtn" id="${data[i]['gsx$id']['$t']}" class="aboutBtn">Детальніше про товар</p>`;
-                out += `<p><button type="button" class="btn btn-success" name="addgood" data="${data[i]['gsx$id']['$t']}">В корзину</button></p>`;
+                out += `<p><button type="button" class="btn btn1" name="addgood" id="${data[i]['gsx$id']['$t']}">В корзину</button></p>`;
+                out += `<p><button name="aboutBtn" id="${data[i]['gsx$id']['$t']}" class="btn btn2 aboutBtn">Детальніше</button></p>`;
                 out += `</div>`;
                 out += `</div>`;
             }
@@ -86,7 +86,7 @@ window.onload = function(){
          if(e.target.attributes.name != undefined){
             // при кліку по кнопці з іменем addgood запускає функцію по добавлянню товару в корзину 
             if(e.target.attributes.name.nodeValue == 'addgood'){
-                addGoods(e.target.attributes.data.nodeValue);
+                addGoods(e.target.attributes.id.nodeValue);
                 //  видаляє товар з корзини + перезаписує корзину + оновлює локал сторидж
                 } else if(e.target.attributes.name.nodeValue == 'del-goods'){
                     delete basket[e.target.attributes.data.nodeValue];
@@ -115,11 +115,12 @@ window.onload = function(){
                         document.getElementById('about').style.display = "block"
                         let selectedGoodsId = e.target.attributes.id.nodeValue;
                         selectedGoods = goods[selectedGoodsId];
-               
                         document.querySelector(".contentName").innerHTML =selectedGoods.name;
-                        document.querySelector(".contentCost").innerHTML ="Ціна: " + selectedGoods.cost + "грн.";
+                        document.querySelector(".contentCost").innerHTML ="Ціна: " +'<b>'+ selectedGoods.cost+'</b>'+' '+ "грн.";
                         document.querySelector(".contentAbout").innerHTML =selectedGoods.about;
-                        document.getElementById('contentImage').src=selectedGoods.image;};
+                        document.getElementById('contentImage').src=selectedGoods.image;
+                        document.querySelector(".btn7").id=selectedGoods.id;
+                    };
                         window.onclick = function(){
                             let modal = document.getElementById('modal');
                             if(event.target == about){
@@ -174,11 +175,11 @@ window.onload = function(){
             let li = '<li>';
             li += 'id'+goods[key]['id']+' ';
             li += goods[key]['name']+' ';
-            li += ` <button name="plus-goods" data="${key}">+</button>`;
-            li += basket[key] + 'шт ';
-            li += ` <button name="minus-goods" data="${key}">-</button>`;
-            li += goods[key]['cost']*basket[key]+'грн.';
-            li += ` <button name="del-goods" data="${key}">Видалити</button>`;
+            li += ` <button name="plus-goods" class="btn btn5" data="${key}">+</button>`;
+            li += ' '+basket[key] + 'шт ';
+            li += ` <button name="minus-goods" class="btn btn5" data="${key}">-</button>`;
+            li += ' '+goods[key]['cost']*basket[key]+'грн.';
+            li += ` <button name="del-goods" class="btn btn6" data="${key}">Видалити</button>`;
             li += '</li>';
             sum += goods[key]['cost']*basket[key];
             ul.innerHTML += li;
@@ -206,10 +207,8 @@ window.onload = function(){
     }
   function ledBasket(){
         if(localStorage.getItem('basket') != '{}'){
-            // document.querySelector("#bas").style.backgroundColor = 'rgba(253, 166, 51, 0.8)';
-            document.querySelector("#bas").style.boxShadow = '0 0 24px rgb(253, 166, 51)';
+            document.querySelector("#bas").style.boxShadow = '0 0 25px rgb(255, 0, 0)';
         } else {
-            document.querySelector("#bas").style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
             document.querySelector("#bas").style.boxShadow = '0 0 24px rgb(255, 255, 255)';
         }
     };
@@ -281,11 +280,18 @@ $( document ).ready(function(){
   let modal = document.getElementById('modal');
   let btn = document.getElementById("buy-btn");
   let closeA = document.querySelector(".close");
+  let closeM = document.querySelector(".closeMod");
+
 
   btn.onclick = function(){
-    modal.style.display = "block";
-    console.log(basket);
+    let qwe = document.getElementById('basket').textContent;
+    if(qwe != "Всього 0грн."){
+    modal.style.display = "block";}
+    else{alert("Корзина порожня! Виберіть")}; 
   }
+  closeM.onclick = function(){
+    about.style.display = "none";
+  };
   closeA.onclick = function(){
     modal.style.display = "none";
   };
@@ -321,7 +327,8 @@ $( document ).ready(function(){
                         localStorage.clear();
                         let emptyBasket = 'Корзина порожня!';
                         document.querySelector(".basket").innerHTML = emptyBasket;
-                        document.querySelector("#bas").style.backgroundColor = '';
+                        $( ".basket-div" ).hide();
+                        document.querySelector("#bas").style.boxShadow = '0 0 24px rgb(255, 255, 255)';
                         return true
                     }
                 })

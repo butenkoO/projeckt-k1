@@ -12,22 +12,28 @@
   <body>
       <header class="nav-panel">
           <nav>
+            <div class="logoDiv">
+            <a class="logoGS" href="index.html"><img src="image/logoGS.png" alt="Gogolshop"></a>
+            </div>
             <ul class="navMenu">
-                <li><a class="goodsMenu" href="goods.html">Каталог товарів</a></li>
-                <li><a class="logoGS" href="index.html"><img src="image/logoGS.png" alt="Gogolshop"></a></li>
-                <li><a class="contactMenu" href="contact.html">Контакти</a></li>
-                <li><a class="commentMenu" href="comments.html">Відгуки</a></li>
+                <li class="goodsMenu"><a href="goods.html">Товари</a></li>
+                <li class="contactMenu"><a href="contact.html">Контакти</li></li>
+                <li class="commentMenu"><a href="comments.html">Відгуки</a></li>
             </ul>
           </nav>
-        </header>
-    <div id="about">
-      <div class="aboutContent">
-        <h1 class="contentName"></h1>
-        <img id="contentImage" src="">
-        <p class="contentCost"></p>
-        <p class="contentAbout"></p>
-      </div>
-    </div>
+        </header> 
+        <div id="about">
+            <div class="aboutContent">
+              <p class="closeMod">X</p> 
+              <img id="contentImage" src="">
+              <div class="aboutGroup">
+              <h1 class="contentName"></h1> 
+              <p class="contentCost"></p>
+              <p class="contentAbout"></p>
+              <p><button type="button" class="btn btn7" name="addgood" id="">В корзину</button></p>
+              </div>
+            </div>
+          </div>
     <div class="fiter">  
       <ul>
       <li class="all">Всі товари</li>
@@ -42,17 +48,18 @@
       <li class="balaclava">Бафи</li>
       </ul>
     </div>
+    <p class="contactTitle">GOGOL' SHOP - Продаж спортивного та молодіжного одягу, галантерейних виробів, годинників, подарункової продукції</p>
         <div class="container cont" >
            <div class="row"> 
-             <i style='font-size:38px'  id='bas' class='fas bas slide-toggle'>&#xf07a;</i>
-            <div class="basket-div col-lg-12">
-            <div class=" text-center">Корзина</div>
-                <ul class="basket" id="basket"></ul>
-                <button id="buy-btn">Купити</button>
+             <i style='font-size:38px'  id='bas' class='fas bas slide-toggle'>&#xf291;</i>
+             <div class="basket-div">
+              <h3 class="basketName">Корзина</h3>
+                  <ul class="basket" id="basket"></ul>
+                  <button class="btn btn4" id="buy-btn">Купити</button>
                 <div id="modal">
                   <div class="modalContent">
-                    <p class="close">x</p>
-                    <p>Для замовлення товару залиште контактні дані і менеджер звяжеться з Вами в найближчий час</p>
+                    <p class="close">X</p>
+                    <p class="aboutIf">Для замовлення товару залиште контактні дані і менеджер звяжеться з Вами в найближчий час</p>
                     <form name="site_form" id="site_form" class="site_form">
                       <label for="nameClien">Імя</label><br>
                       <input type="text" id="nameClient" name="nameClient" placeholder="Імя" required><br>
@@ -61,7 +68,7 @@
                       <label for="phone">Контактний телефон</label><br>
                       <input type="tel" id="phone" name="phone" placeholder="+380" required><br>
                       <textarea class="file" name="file" id="file"></textarea><Br>
-                      <button type="submit" value="SUBMIT" id="submit">Відправити</button>
+                      <button type="submit" class="btn btn" value="SUBMIT" id="submit">Відправити</button>
                     </form>
                   </div>
               </div>
@@ -73,6 +80,22 @@
             </div>
           </div>
     </div>
+    <footer> 
+        <div class="container text-center">
+             <div class="row align-items-top d-flex justify-content-around flex-fill bd-heightlight">    
+                 <div class="col-12 col-md-3 border-none p-md-3 p-0">
+                     <a>м.Івано-Франківськ, вул. Галицька 43Б, трц "Зебра", 3 поверх, <br> тел.+38 (097) 052-47-99</a>
+                 </div>
+                 <div class="col-12 col-md-3 border-none p-md-0 p-0">
+                     <a class="socialm" href="http://vk.com/gogolshop_ua" target="_blank"><i class="fa">&#xf189;</i></a>
+                     <a class="socialm" href="https://www.instagram.com/gogol_ua/?igshid=bvizmbgvg8c0" target="_blank"><i class="fa">&#xf16d;</i></a>
+                 </div>
+                 <div class="col-12 col-md-3 border-none p-md-3 p-0">
+                     <a>м.Тернопіль, площа Майдан Мистецтв, 4, ТЦ "GRAND", 1 поверх, <br> тел.+38 (097) 052-47-99</a>
+                 </div>
+             </div>
+        </div>
+     </footer>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/gogol.js"></script>
   </body>

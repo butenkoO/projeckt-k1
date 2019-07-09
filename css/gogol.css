@@ -6,6 +6,10 @@ body{
     font-family: 'Cuprum', sans-serif;
     }
 
+.red{
+    color: red;
+    }
+
 
 /* _______________________Панель меню____________________________ */
 ul.navMenu{
@@ -17,39 +21,107 @@ ul.navMenu{
     display: flex;
     flex-direction: row; 
     width: 100%;
-    height: 85px;
-    margin-top: 6%;
+    height: 80px;
+    margin-top: 62px;
     background-color: black;
     text-align: center;
     }
+.commentMenu{
+    margin-left: 10%;
+}
+.navMenu li{
+    position: relative;
+    top: 30%;
 
+}
 .contactMenu{
-    margin-right: 10vw;
+    margin-left: 45%;
     }
 
 .goodsMenu{
-    margin-right: 40vw;
-    margin-left: 12vw;
+    margin-left: 20%;
     }
 
-li:hover, .close:hover, [name="aboutBtn"]:hover, .closeMod p{
+li:hover, .close:hover, [name="aboutBtn"]:hover, .closeMod, .bas{
     cursor: pointer;
     }
-
-.logoGS{
+.logoDiv{
     position: absolute;
+    top: 0%;
+    left: 43%;
     z-index: 2;
-    top: -8vh;
-    left: 41%;
-    }
+}
 
-li>a{
+nav a{
     color: #fefefe;
     position: relative;
-    top: 35%;
-    margin-right: 20px;
+    /* top: 35%; */
     text-decoration: none;
     font-size: 26px;
+    }
+/* _______________Головна________________________________ */
+.advantage{
+    display: flex;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    justify-content: center;
+    font-size: 20px;
+}
+.frsadv, .secadv, .trdadv{
+    text-align: center;
+    width: 25%;
+}
+
+
+
+/* ___________________________Кнопки_____________________________________ */
+.btn{
+    font-size: 20px;
+    font-family: 'Cuprum', sans-serif;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    height: 35px;
+    border: 1px solid #000000;
+    background: none;
+    display: inline-block;
+    }
+
+.btn1, .btn2{
+    width: 50%;
+    left: 0;
+    top: 400px;
+    position: absolute;
+    transition: 0.8s;
+    overflow: hidden;
+    }
+
+.btn2{
+    left: 50%;
+    }
+
+.btn3, .btn4, .btn6{
+    padding: 0 7px 0 7px;
+    }
+
+.btn4{
+    position: relative;
+    margin: 20px;
+    left: 5%;
+    }
+
+.btn5{
+    height: 25px;
+    padding: 0 5px 0 5px;
+}
+.btn7{
+    position: relative;
+    padding: 0 5px 0 5px;
+}
+
+.btn:hover{
+    background-color: #000000;
+    color: #f8f8f0;
     }
 
 
@@ -105,9 +177,9 @@ li>a{
     height: 50px;
     left: 0;
     top: 350px;
-    background-color: rgba(236, 236, 236, 0.4);
+    background-color: rgba(236, 236, 236, 0.8);
     color: rgb(29, 29, 29);
-    text-shadow: 1px 1px 5px #f3f7c1;
+    text-shadow: 1px 1px 5px #f8f8f0;
     vertical-align:middle;
     font-size: 20px;
     }
@@ -118,7 +190,7 @@ overflow: hidden;
     }
 
 .goods:hover{
-    height: auto;
+    height: 435px;
     position: absolute;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     z-index: 200;
@@ -131,21 +203,37 @@ overflow: hidden;
     justify-content: center;
     margin-left: 30px;
     }
+.basketName{
+    text-align: center;
+    }
 
 .basket-div{
     margin-bottom: 20px;
+    width: 70%;
+    left: 15%;
+    display: absolute;
+    z-index: 600;
+    position: fixed;
+    top: 6%;
+    background-color: #f8f8f0;
+    border-radius: 2px;
+    border: 1px solid rgb(31, 30, 30);
+
 }
 
 .basket-div ul{
     height: auto;
     }
+    .basket-div ul li{
+        margin-bottom: 5px;
+    }
 
 #bas{
     display: absolute;
-    z-index: 700;
+    z-index: 500;
     position: fixed;
     left: 90%;
-    top: 1.5%;
+    top: 1%;
     margin-right: 30px;
     box-shadow: 0 0 24px rgb(255, 255, 255); 
     background-color:rgba(255, 255, 255, 0.3);
@@ -169,7 +257,7 @@ overflow: hidden;
 
 .modalContent{
     position: absolute;
-    border-radius: 5px;
+    border-radius: 2px;
     top: 25%;
     left: 15%;
     padding: 30px;
@@ -178,6 +266,22 @@ overflow: hidden;
     height: 45%;
     background-color: #fefefe;
     }
+
+input:focus{
+    border: 2px solid black;
+    }
+
+.aboutIf{
+    text-align: center;
+    font-size: 18px;
+    }
+
+.close{
+    float: right;
+    position: absolute;
+    top: 3%;
+    left: 95%;
+}
 
 #file, #cantsee{
     display: none;
@@ -212,33 +316,28 @@ overflow: hidden;
     }
 
 .closeMod{
-    border: 2px solid black;
-    border-radius: 50%;
+    float: right;
     position: absolute;
-    top: -10px;
-    left: 99%;
-    width: 22px;
-    height: 22px;
-    background-color: #fefefe;
-    }
-
-.closeMod p{
-    text-align: center;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-    }   
+    top: 3%;
+    left: 95%;
+    } 
 
 .aboutContent{
     background-color: #fefefe;
     border-radius: 2px;
     width: 70%;
-    height: 70%;
+    height: auto;
     position: absolute;
     top: 15%;
     left: 15%;
     color: black;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+.aboutGroup{
+    position: absolute;
+    left: 40%;
+    top: 5%;
+    right: 5%;
     }
 
 .contentName{
@@ -247,23 +346,15 @@ overflow: hidden;
     }
 
 #contentImage{
-    position: absolute;
-    margin: 0 25px 25px 75px;
-    height: 70%;
+    position: relative;
+    left: 5%;
+    margin: 5% 0 5% 0;
+    width: 30%;
     }
 
-.contentCost{
-    position: absolute;
-    top: 23%;
-    left: 40%;
-    margin: 0 2% 2% 2%;
-    }
+.contentCost, .contentAbout{
 
-.contentAbout{
-    position: absolute;
-    left: 40%;
-    top: 30%;
-    margin: 0 2% 2% 2%;
+    margin: 0 2% 2% 0;
     }
 
 .textAbout{
@@ -352,4 +443,51 @@ input[name="r"]{
                     margin-left: -100%;;
                 }
             }
+/*/*______________________________Contacts______*/
+.textInfo {
+    width: 80%;
+    margin: 0 auto;
+    text-indent: 30px;
+}
+.contactTitle{
+text-align: center;
+margin: 62px;
+font-size: 30px;
 
+}
+.textdescribe {
+    text-align: justify;
+}
+.textcenterred {
+    text-align: center;
+    color: red;
+}
+.textcenter {
+    text-align: center;
+}
+.mapview {
+    width: 450px;
+    height: 250px;
+    border: 0px;
+}
+.mapText{
+    float: left;
+    vertical-align: middle;
+    text-align: start;   
+}
+iframe{
+    float: left;
+}
+footer {
+  display: block;
+  position: relative;
+  background-color: rgba(0,0,0,0.9);
+  color: #fefefe;
+  width: 100%;
+}
+
+.socialm {
+    color: white;
+    font-size: 40px;
+    margin-right: 10px;
+}

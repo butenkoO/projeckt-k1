@@ -6,17 +6,22 @@
     <link rel="stylesheet" href="css/gogol.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
     <link href="https://fonts.googleapis.com/css?family=Cuprum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/gogol.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cuprum&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <title>Gogol shop</title>
   </head>
   <body>
       <header class="nav-panel">
           <nav>
+            <div class="logoDiv">
+            <a class="logoGS" href="index.html"><img src="image/logoGS.png" alt="Gogolshop"></a>
+            </div>
             <ul class="navMenu">
-                <li><a class="goodsMenu" href="goods.html">Каталог товарів</a></li>
-                <li><a class="logoGS" href="index.html"><img src="image/logoGS.png" alt="Gogolshop"></a></li>
-                <li><a class="contactMenu" href="contact.html">Контакти</a></li>
-                <li><a class="commentMenu" href="comments.html">Відгуки</a></li>
+                <li class="goodsMenu"><a href="goods.html">Товари</a></li>
+                <li class="contactMenu"><a href="contact.html">Контакти</li></li>
+                <li class="commentMenu"><a href="comments.html">Відгуки</a></li>
             </ul>
           </nav>
         </header>   
@@ -37,30 +42,47 @@
         </div>
       </div>
       <div class="black"></div>
+    <div class="advantage">
+        <div class="frsadv col-12 col-md-3">
+            <img src="https://img.icons8.com/flat_round/64/000000/v-neck-t-shirt.png">
+            <p>Великий асортимент, який задовільнить найвибагливішого клієнта</p>
+        </div>
+        <div class="secadv col-12 col-md-3">
+            <img src="https://img.icons8.com/cotton/64/000000/money.png">
+            <p>Найкращі ціни та регулярні акційні пропозиції</p>
+        </div>
+        <div class="trdadv col-12 col-md-3">
+            <img src="https://img.icons8.com/doodle/48/000000/manager.png">
+            <p>Відмінне обслуговування та індивідуальний підхід до кожного</p>
+        </div>
+    </div>
       <div id="about">
           <div class="aboutContent">
-            <div class="closeMod"><p>X</p></div> 
-            <h1 class="contentName"></h1>
+            <p class="closeMod">X</p> 
             <img id="contentImage" src="">
+            <div class="aboutGroup">
+            <h1 class="contentName"></h1> 
             <p class="contentCost"></p>
             <p class="contentAbout"></p>
+            <p><button type="button" class="btn btn7" name="addgood" id="">В корзину</button></p>
+            </div>
           </div>
         </div>
          <main class="insmain">
              <p><b>GOGOL'  SHOP ● STREETWEAR - магазин молодіжного одягу та аксесуарів найкращих українських брендів.</b></p>
-             <p><b>Хіт продаж<b></p>
+             <p class="red"><b>Хіт продаж<b></p>
           </main>
           <div class="container cont" >
            <div class="row"> 
-             <i style='font-size:38px'  id='bas' class='fas bas slide-toggle'>&#xf07a;</i>
-            <div class="basket-div col-lg-12">
-            <h3>Корзина</h3>
+             <i style='font-size:38px'  id='bas' class='fas  slide-toggle'>&#xf291;</i>
+            <div class="basket-div">
+            <h3 class="basketName">Корзина</h3>
                 <ul class="basket" id="basket"></ul>
-                <button id="buy-btn">Купити</button>
+                <button class="btn btn4" id="buy-btn">Купити</button>
                 <div id="modal">
                     <div class="modalContent">
-                      <p class="close">x</p>
-                      <p>Для замовлення товару залиште контактні дані і менеджер звяжеться з Вами в найближчий час</p>
+                      <p class="close">X</p>
+                      <p class="aboutIf">Для замовлення товару залиште контактні дані і менеджер звяжеться з Вами в найближчий час</p>
                       <form name="site_form" id="site_form" class="site_form">
                         <label for="nameClien">Імя</label><br>
                         <input type="text" id="nameClient" name="nameClient" placeholder="Імя" required><br>
@@ -69,7 +91,7 @@
                         <label for="phone">Контактний телефон</label><br>
                         <input type="tel" id="phone" name="phone" placeholder="+380" required><br>
                         <textarea class="file" name="file" id="file"></textarea><Br>
-                        <button type="submit" value="SUBMIT" id="submit">Відправити</button>
+                        <button type="submit" class="btn btn3" value="SUBMIT" id="submit">Відправити</button>
                       </form>
                     </div>
               </div>
@@ -83,42 +105,24 @@
           <div class="textAbout">
             <p>Будьте стильними та мобільними. Живіть яскраво та динамічно. Обирайте якісне та українське. Як? Станьте клієнтом магазину «Gogol shop». З придбаними у нас речами ви легко досягатиме своїх маленьких і великих цілей, покорятимете вершини та зачаровуватимете навколишніх. Адже вбрання та аксесуари, представлені у нас, вирізняються бездоганною якістю та ідеальним кроєм. Вони не обмежують, не сковують рухів, а, навпаки, дарують бажаний комфорт. І виглядають при цьому справді красиво, підкреслюючи чудовий смак та індивідуальність свого власника. Ще одним приємним бонусом для наших клієнтів стане те, що ми підтримуємо вітчизняного виробника та пропонуємо продукцію виключно українських відомих брендів.</p>
           </div>
-
-    <!-- <footer>
-    
-        <div class="container text-center text-white" style="background-color: black; height: 100%; width: 100%;">
-           
-             <div class="row align-items-top d-flex justify-content-around flex-fill bd-heightlight">	
-     
-               <div class="col-12 col-sm-5 col-md-3 border-none p-md-0 p-0">
-                <img src="image/12.PNG" style="width: 12em; height: 6em; background-color: black;" alt="image/12.PNG"> 
-               </div>
-     
-               
-                <div class="col-12 col-sm-12-none col-md-1 border-none p-md-3 p-0" style="background-color: black; height: 100%; width: 100%;">
-               <a href="http://vk.com/gogolshop_ua" target="_blank"><img src="image/14.jpg" class="figure-img img-fluid rounded" width="30px" height="30px" alt="vk"></a><br>
-               <a href="https://www.instagram.com/gogol_ua/?igshid=bvizmbgvg8c0" target="_blank"><img src="image/13.jpg" class="figure-img img-fluid rounded" width="30px" height="30px" alt="ins"></a>
-                 </div>
-                
-               
-                 <div class="col-12 col-sm-12 col-md-2 border-none p-md-3 p-0" style="background-color: black; height: 100%; width: 100%;">
-               <h4>Адреси магазинів:</h4><br>
-                </div>
-     
-               <div class="col-12 col-sm-6 col-md-3 border-none p-md-3 p-0" style="background-color: black; height: 100%; width: 100%;">
-                 <a>м.Івано-Франківськ, вул. Галицька 43Б, трц "Зебра", 3 поверх, <br> тел.+38 (097) 052-47-99</a>
-               </div>
-     
-               <div class="col-12 col-sm-6 col-md-3 border-none p-md-3 p-0" style="background-color: black; height: 100%; width: 100%;">
-                  <a>м.Тернопіль, площа Майдан Мистецтв, 4, ТЦ "GRAND", 1 поверх, <br> тел.+38 (097) 052-47-99</a>
-               </div>
-     
-             </div>
-        </div>
-           
-     
-         </footer> -->
+          <footer> 
+              <div class="container text-center">
+                   <div class="row align-items-top d-flex justify-content-around flex-fill bd-heightlight">    
+                       <div class="col-12 col-md-3 border-none p-md-3 p-0">
+                           <a>м.Івано-Франківськ, вул. Галицька 43Б, трц "Зебра", 3 поверх, <br> тел.+38 (097) 052-47-99</a>
+                       </div>
+                       <div class="col-12 col-md-3 border-none p-md-0 p-0">
+                           <a class="socialm" href="http://vk.com/gogolshop_ua" target="_blank"><i class="fa">&#xf189;</i></a>
+                           <a class="socialm" href="https://www.instagram.com/gogol_ua/?igshid=bvizmbgvg8c0" target="_blank"><i class="fa">&#xf16d;</i></a>
+                       </div>
+                       <div class="col-12 col-md-3 border-none p-md-3 p-0">
+                           <a>м.Тернопіль, площа Майдан Мистецтв, 4, ТЦ "GRAND", 1 поверх, <br> тел.+38 (097) 052-47-99</a>
+                       </div>
+                   </div>
+              </div>
+           </footer>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/gogol.js"></script>
+
   </body>
 </html>
