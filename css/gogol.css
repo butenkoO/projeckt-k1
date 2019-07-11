@@ -544,9 +544,6 @@ footer {
                 display: flex;
                 flex-direction: row;
             }
-            .container {
-                padding-left: 40px;
-            }
             .aboutContent{
                 height: auto;
                 width: 90%;
