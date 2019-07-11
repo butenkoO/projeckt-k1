@@ -537,9 +537,6 @@ footer {
             footer{
                 text-align: center;
             }
-            .topgoods{
-                /* margin: auto; */
-            }
             .socM{
                 margin-top: 10px;
             }
@@ -551,15 +548,27 @@ footer {
                 padding-left: 40px;
             }
             .aboutContent{
-                height: 31%;
+                height: auto;
+                width: 90%;
+                left: 5%;
                 overflow: auto;
                 font-size: 12px;
             }
             #contentImage{
-                margin-top: 15%;
+                margin-top: 10%;
             }
             #bas{
-                left: 70%;
+                left: 85%;
+            }
+            .aboutGroup{
+                height: auto;
+            }
+            .basket{
+                width: 90%;
+                left: 5%;
+                font-size: 14px;
+                overflow: auto;
+                white-space: normal;
             }
             
    }
