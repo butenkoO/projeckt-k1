@@ -520,7 +520,7 @@ footer {
     }
     .goods{
         height: 280px;
-        width: 204px;
+        width: 200px;
         }
         .cost{
             padding-top: 13px;
@@ -538,7 +538,7 @@ footer {
                 text-align: center;
             }
             .topgoods{
-                margin: auto;
+                /* margin: auto; */
             }
             .socM{
                 margin-top: 10px;
