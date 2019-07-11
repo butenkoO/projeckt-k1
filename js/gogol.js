@@ -208,8 +208,10 @@ window.onload = function(){
   function ledBasket(){
         if(localStorage.getItem('basket') != '{}'){
             document.querySelector("#bas").style.boxShadow = '0 0 25px rgb(255, 0, 0)';
+            document.querySelector(".fas").src = 'image/logos/cart.png';
         } else {
             document.querySelector("#bas").style.boxShadow = '0 0 24px rgb(255, 255, 255)';
+            document.querySelector(".fas").src = 'image/logos/cartfull.png';
         }
     };
 
