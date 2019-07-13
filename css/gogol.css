@@ -302,7 +302,7 @@ input:focus{
 
 /* __________________________Фільтр___________________________________________ */
 .fiter{
-    position: sticky;
+    position: fixed;
     top: 10px;
     width: 140px;
     float: left;
