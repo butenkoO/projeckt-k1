@@ -264,8 +264,8 @@ overflow: hidden;
 .modalContent{
     position: absolute;
     border-radius: 2px;
-    top: 25%;
-    left: 32%;
+    top: 10%;
+    left: 33%;
     padding: 50px;
     border: 1px solid black;
     width: 370px;
@@ -303,6 +303,7 @@ input:focus{
 /* __________________________Фільтр___________________________________________ */
 .fiter{
     position: fixed;
+    background-color: #fefefe;
     top: 10px;
     width: 140px;
     float: left;
