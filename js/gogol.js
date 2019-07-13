@@ -207,10 +207,10 @@ window.onload = function(){
     }
   function ledBasket(){
         if(localStorage.getItem('basket') != '{}'){
-            document.querySelector("#bas").style.boxShadow = '0 0 25px rgb(255, 0, 0)';
+            document.querySelector("#bas").style.boxShadow = '0 0 25px #DAA520';
             document.querySelector(".fas").src = 'image/logos/cart.png';
         } else {
-            document.querySelector("#bas").style.boxShadow = '0 0 24px rgb(255, 255, 255)';
+            document.querySelector("#bas").style.boxShadow = '0 0 25px rgb(255, 255, 255)';
             document.querySelector(".fas").src = 'image/logos/cartfull.png';
         }
     };
@@ -224,6 +224,11 @@ $( document ).ready(function(){
     $( ".slide-toggle" ).click(function(){
       $( ".basket-div" ).slideToggle(); 
     });
+    $('.button_menu').on('click', function(Event) {Event.preventDefault;
+        $(this).toggleClass('button_menu_active');
+        $(".fiter").toggleClass('fiter_act');
+
+        }) 
   });
 
 //фільтрую товар по класам
@@ -277,6 +282,8 @@ $( document ).ready(function(){
         $( "[class*=balaclava]" ).show();
       });
   });
+
+  
 
 //  при нажатті на кнопку купити відкривається вікно з формою 
   let modal = document.getElementById('modal');
