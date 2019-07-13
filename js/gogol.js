@@ -227,6 +227,7 @@ $( document ).ready(function(){
     $('.button_menu').on('click', function(Event) {Event.preventDefault;
         $(this).toggleClass('button_menu_active');
         $(".fiter").toggleClass('fiter_act');
+        
 
         }) 
   });

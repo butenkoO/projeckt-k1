@@ -25,16 +25,20 @@ ul.navMenu{
     background-color: black;
     text-align: center;
     }
-.commentMenu{
-    margin-left: 10%;
+
+.commentMenu,.contactMenu{
+    width: 25%;
+
 }
 .navMenu li{
     position: relative;
     top: 30%;
-
+}
+.indexMenu{
+    display: none;
 }
 .contactMenu{
-    margin-left: 45%;
+    margin-left: 40%;
     }
 
 .goodsMenu{
@@ -302,8 +306,7 @@ input:focus{
 
 /* __________________________Фільтр___________________________________________ */
 .fiter{
-    position: fixed;
-    background-color: #fefefe;
+    position: sticky;
     top: 10px;
     width: 140px;
     float: left;
@@ -587,6 +590,12 @@ footer {
                 height: 280px;
                 width: 100%;
                 }
+                .fiter{
+                    top: 10%;
+                    position: fixed;
+                    background-color: #fefefe;
+                    height: 100%;
+                }
                 .mapview {
                     width: 200px;
                     height: 150px;
@@ -595,6 +604,16 @@ footer {
                 .mapText{
                     margin:45px 0 0 210px; 
                     }
+                    .indexMenu{
+                        display: block;
+                        
+                    }
+                    .contactMenu,  .indexMenu, .goodsMenu,.commentMenu {
+                     width: 20%;
+                     margin-left:3%;
+                     margin-right: 0;
+                     padding: 0; 
+                        }
             .cost{
             padding-top: 13px;
             height: 40px;
