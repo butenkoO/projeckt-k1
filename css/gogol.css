@@ -11,56 +11,101 @@ body{
     }
 
 /* _______________________Панель меню____________________________ */
-ul.navMenu{
-    position: relative;
-    flex-direction: column;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row; 
-    width: 100%;
-    height: 80px;
-    margin-top: 62px;
-    background-color: black;
-    text-align: center;
-    }
 
-.commentMenu,.contactMenu{
-    width: 25%;
-
-}
-.navMenu li{
-    position: relative;
-    top: 30%;
-}
-.indexMenu{
-    display: none;
-}
-.contactMenu{
-    margin-left: 40%;
+    nav {
+        width: 100%;
+        height: 80px;
+        margin-top: 62px;
+        background-color: black;
     }
-
-.goodsMenu{
-    margin-left: 20%;
+    .logoDiv{
+        position: absolute;
+        top: 7px;
+        left: 5%;
     }
-
-li:hover, .close:hover, [name="aboutBtn"]:hover, .closeMod, .bas, input{
-    cursor: pointer;
+    .navMenu ul{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        text-align: center;
+        list-style: none; 
+        justify-content: flex-end;
+        
     }
-.logoDiv{
-    position: absolute;
-    top: 0%;
-    left: 43%;
-    z-index: 2;
-}
-
-nav a{
-    color: #fefefe;
-    position: relative;
-    text-decoration: none;
-    font-size: 26px;
+    .navMenu ul li{
+        margin-top: 26px;   
+        margin-left: 5%;
+        padding: 0 10px 0 10px;
+        transition: 0.3s;
     }
+    .navMenu ul .thirdMenu{
+        margin-right: 10%;
+    }
+    .navMenu ul li a,.minmenu{
+        color: #fefefe;
+        text-transform: uppercase;
+        font-size: 24px;
+        text-decoration: none;    
+    }
+    .navMenu [type="checkbox"]{
+        display: none;
+        }
+    
+    .Menu1{
+        display: none;
+    }
+    .minmenu{
+        display: none;
+    }
+    
+    .navMenu ul li:hover{
+        transform: scale(1.1);
+    }
+    
+    
+    @media all and (max-width: 800px){
+        .logoDiv{
+            display: none;
+        }
+        .Menu1{
+            display: block;
+        }
+        .navMenu ul .thirdMenu{
+            margin-right: 0;
+        }
+        .minmenu{
+            display: block;
+            position: relative;
+            left: 20px;
+            top: 13px;
+        }
+        .navMenu ul{
+            justify-content: center;
+            display: none;
+            position: relative;
+            z-index: 500;
+            top: 37px;
+            height: 265px;
+            flex-direction: column;
+            background-color: rgba(68, 68, 68, 0.9);
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
+        }
+        .navMenu label img{
+            position: relative;
+            top: 9px;
+            margin-right: 4px;
+        }
+    
+        .navMenu ul li {
+            padding: 19px;
+            margin: 0;
+        }
+        input.minmenu:checked ~  ul{
+            display: block;
+        }
+    }   
 /* _______________Головна________________________________ */
 .advantage{
     display: flex;
@@ -585,13 +630,13 @@ footer {
     }
 
 /* __________________Media______________________________ */
-   @media screen and (max-width: 768px) {
+   @media screen and (max-width: 800px) {
             .goods{
                 height: 280px;
                 width: 100%;
                 }
                 .fiter{
-                    top: 10%;
+                    top: 142px;
                     position: fixed;
                     background-color: #fefefe;
                     height: 100%;
@@ -604,16 +649,7 @@ footer {
                 .mapText{
                     margin:45px 0 0 210px; 
                     }
-                    .indexMenu{
-                        display: block;
-                        
-                    }
-                    .contactMenu,  .indexMenu, .goodsMenu,.commentMenu {
-                     width: 20%;
-                     margin-left:3%;
-                     margin-right: 0;
-                     padding: 0; 
-                        }
+
             .cost{
             padding-top: 13px;
             height: 40px;
