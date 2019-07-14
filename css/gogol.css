@@ -63,7 +63,7 @@ body{
     }
     
     
-    @media all and (max-width: 800px){
+    @media only screen and (min-device-width : 320px) and (max-device-width : 768px){
         .logoDiv{
             display: none;
         }
@@ -630,7 +630,7 @@ footer {
     }
 
 /* __________________Media______________________________ */
-   @media screen and (max-width: 800px) {
+   @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
             .goods{
                 height: 280px;
                 width: 100%;
