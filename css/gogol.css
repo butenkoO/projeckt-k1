@@ -439,10 +439,9 @@ input:focus{
 /* _______________________________________________________________________ */
 
 .comm{
-    width: 90%;
     height: 100%;
     position: relative;
-    left: 5%;
+    left: 25%;
     margin: 0 auto;
 }
 
