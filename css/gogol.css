@@ -447,7 +447,7 @@ input:focus{
 .fb-comments,
 .fb-comments span,
 .fb-comments iframe {
-    width: 70% !important;
+    width: 100% !important;
 }
 
 
