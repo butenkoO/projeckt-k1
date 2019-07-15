@@ -444,6 +444,10 @@ input:focus{
     left: 20%;
     margin: 0 auto;
 }
+.h3comm{
+    margin: 15px auto;
+    text-align: center;
+}
 
 /* _____________________________Слайдер__________________________________ */
 .slider{
@@ -580,12 +584,6 @@ footer {
     width: 100%;
     font-family: 'Cuprum', sans-serif;
     }
-
-footer .foot{
-        position: fixed; /* Фиксированное положение */
-        left: 0;
-        bottom: 0; /* Левый нижний угол */
-}
 
 .socM{
     margin-top:17px;
