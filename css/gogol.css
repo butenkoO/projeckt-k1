@@ -215,9 +215,8 @@ overflow: hidden;
 
 .basket-div{
     margin-bottom: 20px;
-    width: 70%;
-    left: 15%;
-    display: absolute;
+    width: 80%;
+    left: 10%;
     z-index: 600;
     position: fixed;
     top: 6%;
