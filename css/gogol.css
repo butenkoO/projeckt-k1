@@ -441,8 +441,13 @@ input:focus{
 .comm{
     height: 100%;
     position: relative;
-    left: 25%;
+    left: 15%;
     margin: 0 auto;
+}
+.fb-comments,
+.fb-comments span,
+.fb-comments iframe {
+    width: 70% !important;
 }
 
 
