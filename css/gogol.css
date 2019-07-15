@@ -5,11 +5,10 @@ body{
     padding: 0;
     font-family: 'Cuprum', sans-serif;
     }
-
-.red{
-    color: red;
+    
+li:hover, .close:hover, .btn:hover,#bas,.minmenu ,.closeMod p{
+    cursor: pointer;
     }
-
 /* _______________________Панель меню____________________________ */
 
     nav {
@@ -51,9 +50,6 @@ body{
         display: none;
         }
     
-    .Menu1{
-        display: none;
-    }
     .minmenu{
         display: none;
     }
@@ -62,50 +58,6 @@ body{
         transform: scale(1.1);
     }
     
-    
-    @media only screen and (min-width : 320px) and (max-width : 768px){
-        .logoDiv{
-            display: none;
-        }
-        .Menu1{
-            display: block;
-        }
-        .navMenu ul .thirdMenu{
-            margin-right: 0;
-        }
-        .minmenu{
-            display: block;
-            position: relative;
-            left: 20px;
-            top: 13px;
-        }
-        .navMenu ul{
-            justify-content: center;
-            display: none;
-            position: relative;
-            z-index: 500;
-            top: 37px;
-            height: 265px;
-            flex-direction: column;
-            background-color: rgba(68, 68, 68, 0.9);
-            margin: 0;
-            padding: 0;
-            vertical-align: middle;
-        }
-        .navMenu label img{
-            position: relative;
-            top: 9px;
-            margin-right: 4px;
-        }
-    
-        .navMenu ul li {
-            padding: 19px;
-            margin: 0;
-        }
-        input.minmenu:checked ~  ul{
-            display: block;
-        }
-    }   
 /* _______________Головна________________________________ */
 .advantage{
     display: flex;
@@ -118,6 +70,9 @@ body{
     text-align: center;
 }
 
+.red{
+    color: red;
+    }
 
 /* ___________________________Кнопки_____________________________________ */
 .btn{
@@ -370,7 +325,7 @@ input:focus{
     font-size: 20px;
     padding: 0;
 }
-/* +_______________________________________________________ */
+
 .button_menu {
     position: absolute;
     top: 10px;
@@ -639,71 +594,131 @@ footer {
 
 /* __________________Media______________________________ */
    @media only screen and (min-width : 320px) and (max-width : 768px) {
-            .goods{
-                height: 280px;
-                width: 100%;
-                }
-                .fiter{
-                    top: 142px;
-                    position: fixed;
-                    background-color: #fefefe;
-                    height: 100%;
-                }
-                .mapview {
-                    width: 200px;
-                    height: 150px;
-                    }
+        .goods{
+            height: 280px;
+            width: 100%;
+            }
                 
-                .mapText{
-                    margin:45px 0 0 210px; 
-                    }
+        .fiter{
+            top: 142px;
+            position: fixed;
+            background-color: #fefefe;
+            height: 100%;
+            }
+        
+        .button_menu {
+            top: 50px;
+        }
 
-            .cost{
+        .mapview {
+            width: 200px;
+            height: 150px;
+            }
+                
+        .mapText{
+            margin:45px 0 0 210px; 
+            }
+
+        .logoDiv{
+            display: none;
+            }
+                    
+        .navMenu ul .thirdMenu{
+            margin-right: 0;
+            }
+            
+        .minmenu{
+            display: block;
+            position: relative;
+            left: 20px;
+            top: 13px;
+            }
+
+        .navMenu ul{
+            justify-content: center;
+            display: none;
+            position: relative;
+            z-index: 500;
+            top: 37px;
+            height: 200px;
+            flex-direction: column;
+            background-color: rgba(68, 68, 68, 0.9);
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
+            }
+
+        .navMenu label img{
+            position: relative;
+            top: 9px;
+            margin-right: 4px;
+            }
+                
+        .navMenu ul li {
+            padding: 19px;
+            margin: 0;
+            }
+
+        input.minmenu:checked ~  ul{
+            display: block;
+            }
+
+        .cost{
             padding-top: 13px;
             height: 40px;
             top: 280px;
             font-size: 16px;
             }
-            .goods:hover{
-                height: 355px;
+
+        .goods:hover{
+            height: 355px;
             }
-            .btn1, .btn2{
-                top: 320px;
+
+        .btn1, .btn2{
+            top: 320px;
             }
-            footer{
-                text-align: center;
+
+        footer{
+            text-align: center;
             }
-            .socM{
-                margin-top: 10px;
+
+        .socM{
+            margin-top: 10px;
             }
-            .advantage{
-                display: none;
+
+        .advantage{
+            display: none;
             }
-            .aboutContent{
-                height: auto;
-                width: 90%;
-                left: 5%;
-                overflow: auto;
-                font-size: 1em;
+
+        .aboutContent{
+            height: auto;
+            width: 90%;
+            left: 5%;
+            overflow: auto;
+            font-size: 1em;
             }
-            #contentImage{
-                margin-top: 10%;
+
+        #contentImage{
+            margin-top: 10%;
             }
-            #bas{
-                left: 85%;
+
+        #bas{
+            left: 85%;
             }
-            .aboutGroup{
-                height: auto;
+
+        .aboutGroup{
+            height: auto;
             }
-            .basket{
-                width: 90%;
-                left: 5%;
-                font-size: 14px;
-                overflow: auto;
-                white-space: normal;
+
+        .basket{
+            width: 90%;
+            left: 5%;
+            font-size: 14px;
+            overflow: auto;
+            white-space: normal;
             }
-            .logoGS{
-                display: none;
+
+        .logoGS{
+            display: none;
             }
-            
    }
