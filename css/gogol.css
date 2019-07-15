@@ -584,7 +584,6 @@ footer {
 footer .foot{
         position: fixed; /* Фиксированное положение */
         left: 0;
-        margin-top: 90%; 
         bottom: 0; /* Левый нижний угол */
 }
 
