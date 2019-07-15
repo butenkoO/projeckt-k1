@@ -581,6 +581,11 @@ footer {
     width: 100%;
     font-family: 'Cuprum', sans-serif;
     }
+footer .foot{
+    position:absolute;
+    top: 90%;
+    bottom: 0;
+}
 
 .socM{
     margin-top:17px;
