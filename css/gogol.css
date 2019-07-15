@@ -436,7 +436,7 @@ input:focus{
     margin: 0 auto;
     font-size: 18px;
     }
-/* _______________________________________________________________________ */
+/* ___________________________________Comm____________________________________ */
 
 .comm{
     height: 100vh;
@@ -573,17 +573,19 @@ iframe{
 /* +________________footer___________________ */
 footer {
     display: block;
-    position: relative;
+    position: block;
     text-align: center;
     background-color: rgba(0,0,0,0.9);
     color: #fefefe;
     width: 100%;
     font-family: 'Cuprum', sans-serif;
     }
+
 footer .foot{
-    position:absolute;
-    top: 90%;
-    bottom: 0;
+        position: fixed; /* Фиксированное положение */
+        left: 0;
+        margin-top: 90%; 
+        bottom: 0; /* Левый нижний угол */
 }
 
 .socM{
